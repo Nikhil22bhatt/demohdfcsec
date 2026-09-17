@@ -39,9 +39,9 @@ header nav[aria-expanded='true'] {
   header nav {
     display: flex;
     justify-content: space-between;
-    gap: 0 16px;
-    max-width: 1264px;
-    padding: 0 24px;
+    gap: 0 12px;
+    max-width: 1500px;
+    padding: 0 20px;
   }
 
   header nav[aria-expanded='true'] {
@@ -163,19 +163,19 @@ header nav .nav-brand .nav-ticker {
   header nav .nav-brand {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     flex-basis: auto;
   }
 
   header nav .nav-brand img {
-    width: 110px;
+    width: 104px;
   }
 
   header nav .nav-brand .nav-ticker {
     display: flex;
     align-items: center;
-    gap: 14px;
-    font-size: 11px;
+    gap: 10px;
+    font-size: 10px;
     line-height: 1.1;
     white-space: nowrap;
   }
@@ -277,7 +277,7 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 18px;
+    gap: 14px;
     margin: 0;
   }
 
@@ -324,6 +324,13 @@ header nav .nav-tools {
   grid-area: tools;
   display: flex;
   align-items: center;
+  gap: 10px;
+}
+
+/* CTA + Login arrive as two stacked <p> inside a wrapper — lay them in a row */
+header nav .nav-tools .default-content-wrapper {
+  display: flex;
+  align-items: center;
   gap: 12px;
 }
 
@@ -338,8 +345,8 @@ header nav .nav-search {
 
 header nav .nav-search input {
   box-sizing: border-box;
-  width: 130px;
-  padding: 6px 12px;
+  width: 92px;
+  padding: 6px 10px;
   border: 1px solid #d0d4e4;
   border-radius: 20px;
   background-color: #f4f6ff;
@@ -350,7 +357,7 @@ header nav .nav-search input {
 /* HDFC CTA (Open Trading A/C) — red pill */
 header nav .nav-tools a.nav-cta {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 8px 14px;
   border-radius: 20px;
   background-color: var(--brand-cta);
   color: #fff;
