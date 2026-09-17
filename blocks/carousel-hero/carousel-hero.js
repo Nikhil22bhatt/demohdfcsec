@@ -96,6 +96,12 @@ function createSlide(row, slideIndex, carouselId) {
     slide.classList.add('slide-photo');
   }
 
+  // Brand slide (the only one with an <h1>): centered text with the composed
+  // graphic flowing below it, matching the source's hero layout.
+  if (slide.querySelector('.carousel-hero-slide-content h1')) {
+    slide.classList.add('slide-centered');
+  }
+
   // Banner slides: the whole slide IS a designed banner image with baked-in copy.
   // Their content cell carries no heading (just a label), so drop the overlay text
   // and render the banner edge-to-edge with no scrim.

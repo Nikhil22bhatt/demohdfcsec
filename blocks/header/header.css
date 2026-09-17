@@ -32,20 +32,32 @@ header nav[aria-expanded='true'] {
 }
 
 @media (width >= 900px) {
+  /* two-row header is taller than the mobile --nav-height reservation */
+  header {
+    height: auto;
+  }
+
   header .nav-wrapper {
     position: relative;
   }
 
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    gap: 0 12px;
-    max-width: 1500px;
-    padding: 0 20px;
-  }
-
+  /* Two-row header (matches source):
+     row 1 → brand + ticker (left)  |  Open Trading A/C + Login (right)
+     row 2 → menu sections (left)   |  Quotes/Nav search (right)
+     Note: on desktop the nav carries aria-expanded="true", so the expanded
+     selector must repeat the same template or the mobile grid wins. */
+  header nav,
   header nav[aria-expanded='true'] {
+    display: grid;
+    grid-template:
+      'brand tools' auto
+      'sections search' auto / 1fr auto;
+    align-items: center;
+    gap: 10px 24px;
+    max-width: 1280px;
     min-height: 0;
+    height: auto;
+    padding: 14px 32px;
     overflow: visible;
   }
 }
@@ -379,8 +391,30 @@ header nav .nav-tools a.nav-login {
 }
 
 @media (width >= 900px) {
+  /* row 1 right: CTA + Login pinned to the right edge */
+  header nav .nav-tools {
+    grid-area: tools;
+    justify-self: end;
+    gap: 20px;
+  }
+
+  /* row 2 right: wide Quotes/Nav search pill (matches source) */
   header nav .nav-search {
+    grid-area: search;
     display: block;
+    justify-self: end;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  header nav .nav-search input {
+    width: 100%;
+    padding: 11px 18px 11px 40px;
+    border-radius: 24px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%237a7f99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>');
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    font-size: var(--body-font-size-s);
   }
 }
 

@@ -167,7 +167,9 @@ export default async function decorate(block) {
     const search = document.createElement('div');
     search.className = 'nav-search';
     search.innerHTML = '<input type="search" aria-label="Quotes, Nav" placeholder="Quotes, Nav">';
-    navTools.prepend(search);
+    // Search lives on the second nav row (beside the menu), so attach it to the
+    // nav itself rather than the tools group (which holds CTA + Login on row 1).
+    nav.append(search);
     // Style the last two tool links as CTA (Open Trading A/C) + secondary (Login).
     const toolLinks = navTools.querySelectorAll('a');
     if (toolLinks[toolLinks.length - 2]) toolLinks[toolLinks.length - 2].classList.add('nav-cta');

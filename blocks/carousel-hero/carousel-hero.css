@@ -77,6 +77,53 @@
   object-position: center right;
 }
 
+/* --- Centered brand slide: text on top, composed graphic flowing below, both
+   horizontally centered (matches the source hero) --- */
+.carousel-hero .carousel-hero-slide.slide-centered {
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 56px 24px 40px;
+}
+
+.carousel-hero .carousel-hero-slide.slide-centered .carousel-hero-slide-content {
+  order: 0;
+  position: static;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+/* the graphic is in normal flow, centered, below the copy */
+.carousel-hero .carousel-hero-slide.slide-centered .carousel-hero-slide-image {
+  order: 1;
+  position: static;
+  width: auto;
+  max-width: min(1000px, 92%);
+  height: auto;
+  margin: 8px auto 0;
+}
+
+.carousel-hero .carousel-hero-slide.slide-centered .carousel-hero-slide-image picture,
+.carousel-hero .carousel-hero-slide.slide-centered .carousel-hero-slide-image picture > img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* center the constrained copy children (they are left-capped by default) */
+.carousel-hero .carousel-hero-slide.slide-centered .carousel-hero-slide-content > * {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* eyebrow badge stays inline-block but centered */
+.carousel-hero .carousel-hero-slide.slide-centered .carousel-hero-slide-content > p:first-child {
+  display: inline-block;
+}
+
 /* full-bleed photo slides (people photos): cover the whole slide instead of contained */
 .carousel-hero .carousel-hero-slide.slide-photo .carousel-hero-slide-image {
   inset: 0;
@@ -99,8 +146,10 @@
   object-position: center;
 }
 
-/* left scrim so white text stays legible over image/photo (not on banner slides) */
-.carousel-hero .carousel-hero-slide:not(.slide-banner) .carousel-hero-slide-image::after {
+/* left scrim so white text stays legible over image/photo
+   (not on banner slides, and not the centered brand slide where the graphic
+   sits in normal flow below the copy) */
+.carousel-hero .carousel-hero-slide:not(.slide-banner, .slide-centered) .carousel-hero-slide-image::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -113,6 +162,7 @@
 }
 
 /* --- Text content: left column, constrained to the 1200 content band --- */
+/* stylelint-disable-next-line no-descending-specificity */
 .carousel-hero .carousel-hero-slide .carousel-hero-slide-content {
   position: relative;
   z-index: 1;
@@ -125,11 +175,13 @@
 }
 
 /* constrain the overlaid copy to the left ~half over the photo */
+/* stylelint-disable-next-line no-descending-specificity */
 .carousel-hero .carousel-hero-slide-content > * {
   max-width: 540px;
 }
 
 /* eyebrow badge */
+/* stylelint-disable-next-line no-descending-specificity */
 .carousel-hero .carousel-hero-slide-content > p:first-child {
   display: inline-block;
   margin: 0 0 24px;
@@ -302,32 +354,41 @@
     max-width: none;
   }
 
-  /* product-image slides (app mockup / Portfolio graphic): sit in the right
-     ~half, nudged clear of the headline column */
-  .carousel-hero .carousel-hero-slide:not(.slide-photo, .slide-banner) .carousel-hero-slide-image {
+  /* product-image slides (app mockup): sit in the right ~half, nudged clear of
+     the headline column. Excludes the centered brand slide. */
+  .carousel-hero .carousel-hero-slide:not(.slide-photo, .slide-banner, .slide-centered) .carousel-hero-slide-image {
     inset: 0 0 0 auto;
     width: 48%;
     max-width: none;
   }
 
-  .carousel-hero .carousel-hero-slide:not(.slide-photo, .slide-banner) .carousel-hero-slide-image picture > img {
+  .carousel-hero .carousel-hero-slide:not(.slide-photo, .slide-banner, .slide-centered) .carousel-hero-slide-image picture > img {
     object-position: center right;
   }
 
   /* keep the headline column inside the left half on product-image slides so
      the copy never runs under the right-side graphic */
-  .carousel-hero .carousel-hero-slide:not(.slide-photo, .slide-banner) .carousel-hero-slide-content > * {
+  .carousel-hero .carousel-hero-slide:not(.slide-photo, .slide-banner, .slide-centered) .carousel-hero-slide-content > * {
     max-width: 460px;
   }
 
-  .carousel-hero .carousel-hero-slide-content {
+  .carousel-hero .carousel-hero-slide:not(.slide-centered) .carousel-hero-slide-content {
     padding: 72px 32px;
+  }
+
+  /* centered brand slide: roomier top padding, indicators centered */
+  .carousel-hero .carousel-hero-slide.slide-centered {
+    padding: 64px 32px 44px;
   }
 
   .carousel-hero .carousel-hero-slide-content h1,
   .carousel-hero .carousel-hero-slide-content h2,
   .carousel-hero .carousel-hero-slide-content h3 {
     font-size: 46px;
+  }
+
+  .carousel-hero .carousel-hero-slide.slide-centered .carousel-hero-slide-content h1 {
+    font-size: 60px;
   }
 
   .carousel-hero .carousel-hero-slide-indicators {
