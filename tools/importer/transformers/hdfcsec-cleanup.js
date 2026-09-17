@@ -21,7 +21,23 @@ export default function transform(hookName, element, payload) {
       '.modal.fade',
       '.menu-overlay',
       'iframe',
+      'script',
+      'noscript',
+      'style',
     ]);
+
+    // Strip analytics/tracking-pixel <img> tags that leak into content as
+    // 1x1 beacons (Facebook, Bing, LinkedIn, Everest/Adobe, DoubleClick, etc.).
+    // These have no alt text and point at known tracker hosts.
+    const TRACKER_HOSTS = [
+      'facebook.com/tr', 'bat.bing.com', 'px.ads.linkedin.com',
+      'everesttech.net', 'doubleclick.net', 'google-analytics.com',
+      'googletagmanager.com', 'clarity.ms', 'licdn.com', 'snap.licdn.com',
+    ];
+    element.querySelectorAll('img[src]').forEach((img) => {
+      const src = img.getAttribute('src') || '';
+      if (TRACKER_HOSTS.some((h) => src.includes(h))) img.remove();
+    });
   }
 
   if (hookName === H.after) {
