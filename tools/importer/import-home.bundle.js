@@ -345,8 +345,27 @@ var CustomImportScript = (() => {
         "#modalLogin",
         ".modal.fade",
         ".menu-overlay",
-        "iframe"
+        "iframe",
+        "script",
+        "noscript",
+        "style"
       ]);
+      const TRACKER_HOSTS = [
+        "facebook.com/tr",
+        "bat.bing.com",
+        "px.ads.linkedin.com",
+        "everesttech.net",
+        "doubleclick.net",
+        "google-analytics.com",
+        "googletagmanager.com",
+        "clarity.ms",
+        "licdn.com",
+        "snap.licdn.com"
+      ];
+      element.querySelectorAll("img[src]").forEach((img) => {
+        const src = img.getAttribute("src") || "";
+        if (TRACKER_HOSTS.some((h) => src.includes(h))) img.remove();
+      });
     }
     if (hookName === H.after) {
       WebImporter.DOMUtils.remove(element, [
