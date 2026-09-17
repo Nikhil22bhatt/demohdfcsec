@@ -1,6 +1,6 @@
-/* HDFC Securities footer — dark theme (black bg, white text) */
+/* HDFC Securities footer — black bg, white text (matches source rgb(0,0,0)) */
 footer {
-  background-color: #0a0f1e;
+  background-color: #000;
   color: #fff;
   font-size: var(--body-font-size-xs);
 }
