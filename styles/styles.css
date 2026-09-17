@@ -292,9 +292,10 @@ main img {
   width: 100%;
 }
 
-/* sections */
+/* sections — spacing matches source hdfcsec.com (padding-based, ~82px desktop) */
 main > .section {
-  margin: 48px 0;
+  margin: 0;
+  padding: 40px 0;
 }
 
 main > .section > div {
@@ -305,11 +306,12 @@ main > .section > div {
 
 main > .section:first-of-type {
   margin-top: 0;
+  padding-top: 0;
 }
 
 @media (width >= 900px) {
   main > .section {
-    margin: 72px 0;
+    padding: 41px 0; /* ~82px between adjacent sections (41 bottom + 41 top) */
   }
 
   main > .section > div {
@@ -330,15 +332,15 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-/* accent section — HDFC light-violet support band (#e7ebff) */
+/* accent section — HDFC light-violet support band (#e7ebff), source pad ~56px */
 main .section.accent {
   background-color: var(--brand-accent);
   margin: 0;
-  padding: 56px 0;
+  padding: 40px 0;
 }
 
 @media (width >= 900px) {
   main .section.accent {
-    padding: 72px 0;
+    padding: 56px 0;
   }
 }
