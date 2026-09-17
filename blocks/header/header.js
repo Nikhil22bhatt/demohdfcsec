@@ -113,10 +113,12 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav as fragment
+  // load nav as fragment (metadata-independent dual-fetch: /content first, then root)
+  let navPath = '/content/nav';
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  if (navMeta) navPath = new URL(navMeta, window.location).pathname;
+  let fragment = await loadFragment(navPath);
+  if (!fragment) fragment = await loadFragment('/nav');
 
   // decorate nav DOM
   block.textContent = '';
@@ -131,10 +133,23 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
+  const brandLink = navBrand && navBrand.querySelector('.button');
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
+  }
+
+  // Build the live-quote search box (HDFC "Quotes, Nav") in the tools section.
+  const navTools = nav.querySelector('.nav-tools');
+  if (navTools) {
+    const search = document.createElement('div');
+    search.className = 'nav-search';
+    search.innerHTML = '<input type="search" aria-label="Quotes, Nav" placeholder="Quotes, Nav">';
+    navTools.prepend(search);
+    // Style the last two tool links as CTA (Open Trading A/C) + secondary (Login).
+    const toolLinks = navTools.querySelectorAll('a');
+    if (toolLinks[toolLinks.length - 2]) toolLinks[toolLinks.length - 2].classList.add('nav-cta');
+    if (toolLinks[toolLinks.length - 1]) toolLinks[toolLinks.length - 1].classList.add('nav-login');
   }
 
   const navSections = nav.querySelector('.nav-sections');

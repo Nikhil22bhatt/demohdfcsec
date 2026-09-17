@@ -1,0 +1,150 @@
+/* cards-offering — 3-up offering cards (Discount Broker / Full Service / Wealth Advisor).
+   Visual values extracted from source .wealth-cards computed styles. */
+
+.cards-offering > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.cards-offering > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  border: 1px solid rgb(0 0 0 / 10%);
+  border-radius: 16px;
+  padding: 24px 22px;
+}
+
+/* Featured (middle) card — violet gradient wash */
+.cards-offering > ul > li.cards-offering-featured {
+  background-image: linear-gradient(
+    rgb(177 180 255 / 15%) -10%,
+    rgb(42 49 206 / 25%) 103%
+  );
+}
+
+/* --- Logo --- */
+.cards-offering .cards-offering-card-image {
+  line-height: 0;
+  margin-bottom: 32px;
+}
+
+.cards-offering .cards-offering-card-image img {
+  width: auto;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* --- Body --- */
+.cards-offering .cards-offering-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Eyebrow badge (first paragraph) — pinned top-right, aligned with the logo row */
+.cards-offering .cards-offering-card-body > p:first-child {
+  position: absolute;
+  top: 24px;
+  right: 22px;
+  margin: 0;
+  padding: 8px 15px;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text-color);
+  background-color: rgb(42 49 206 / 10%);
+  border-radius: 7px;
+}
+
+.cards-offering-featured .cards-offering-card-body > p:first-child {
+  font-weight: 600;
+}
+
+/* Title (second paragraph) — treated as a card heading */
+.cards-offering .cards-offering-card-body > p:nth-child(2) {
+  margin: 0 0 24px;
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: var(--text-color);
+}
+
+.cards-offering-featured .cards-offering-card-body > p:nth-child(2) {
+  color: var(--brand-primary);
+}
+
+/* Feature list */
+.cards-offering .cards-offering-card-body ul {
+  list-style: none;
+  margin: 0 0 auto;
+  padding: 0 0 24px;
+}
+
+.cards-offering .cards-offering-card-body ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  padding: 6px 0;
+  font-size: 14px;
+  line-height: 1.25;
+  color: var(--text-color);
+}
+
+.cards-offering .cards-offering-card-body ul li::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='9' fill='%23D9D9D9'/%3E%3Cpath d='M6 10l3 3 5-5' stroke='%23FFFFFF' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.cards-offering-featured .cards-offering-card-body ul li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='9' fill='%2300015e'/%3E%3Cpath d='M6 10l3 3 5-5' stroke='%23FFFFFF' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* CTA — pill link, outlined on regular cards, solid navy on the featured card.
+   CTAs render as plain <a> (not EDS .button), so scope directly to the anchor. */
+.cards-offering .cards-offering-card-body p:last-child {
+  margin: 0;
+}
+
+.cards-offering .cards-offering-card-body a:any-link {
+  display: inline-block;
+  padding: 11px 15px;
+  border: 1px solid rgb(0 0 0 / 25%);
+  border-radius: 21px;
+  background-color: var(--background-color);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--brand-primary);
+  text-decoration: none;
+}
+
+.cards-offering .cards-offering-card-body a:hover {
+  text-decoration: none;
+  border-color: var(--brand-primary);
+}
+
+.cards-offering-featured .cards-offering-card-body a:any-link {
+  border-color: var(--brand-primary);
+  background-color: var(--brand-primary);
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  .cards-offering > ul {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+    gap: 16px;
+  }
+}

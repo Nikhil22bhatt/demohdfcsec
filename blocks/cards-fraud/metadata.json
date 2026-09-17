@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-fraud",
+  "baseBlock": "cards",
+  "canonicalModel": "collection",
+  "visualCharacteristics": "Four fraud-awareness cards (Spot Suspicious Activity, Secure Your Account, Never Share Credentials, Let's Make India Fraud Free). Each is a bordered box with a small icon, a title, and a description.",
+  "contentPattern": "First row = block name. Each subsequent row is one card: icon image cell + body cell (title, description).",
+  "usage": "Bordered icon-led awareness/tips grid.",
+  "options": [],
+  "memberVariantIds": ["cards-fraud"]
+}

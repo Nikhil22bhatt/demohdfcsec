@@ -1,0 +1,10 @@
+{
+  "variantName": "embed-poster",
+  "baseBlock": "embed",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Wide 16:9 media banner (SCAM 2025 film promo) with a full-bleed poster image, an overlaid heading, and a 'Watch Now' play button. Clicking loads the embedded video.",
+  "contentPattern": "First row = block name. Second row = single cell containing an optional poster image, an optional overlaid heading, and a video URL link.",
+  "usage": "Click-to-play video promo with a poster image and overlaid text.",
+  "options": [],
+  "memberVariantIds": ["embed-poster"]
+}

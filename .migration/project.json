@@ -1,0 +1,11 @@
+{
+  "type": "da",
+  "sites": {
+    "demohdfcsec": {
+      "previewOrg": "nikhil22bhatt",
+      "previewSite": "demohdfcsec",
+      "contentHostUrl": "https://content.da.live/nikhil22bhatt/demohdfcsec/",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+/*
+ * brand.css — HDFC Securities design tokens extracted from https://www.hdfcsec.com/
+ * Font: Inter (Google Fonts). Primary navy #00015e, CTA red #d80000, accent #e7ebff.
+ */
+
+:root {
+  /* brand colors */
+  --background-color: #fff;
+  --text-color: #0a1628;
+  --brand-primary: #00015e;
+  --brand-cta: #d80000;
+  --brand-cta-hover: #b00000;
+  --brand-accent: #e7ebff;
+  --link-color: #00015e;
+  --link-hover-color: #d80000;
+  --light-color: #f4f6ff;
+  --dark-color: #0a1628;
+
+  /* fonts */
+  --body-font-family: inter, inter-fallback, sans-serif;
+  --heading-font-family: inter, inter-fallback, sans-serif;
+
+  /* spacing */
+  --section-padding: 80px;
+  --content-max-width: 1200px;
+}

@@ -1,0 +1,66 @@
+/* Block: cards-fraud — fraud-awareness cards.
+   Values extracted from source .fraud-cards computed styles:
+   card bg rgb(231,235,255)=#e7ebff (brand accent), radius ~24px, padding ~28px,
+   icon ~80px navy, centered content, title 20px/700 navy, desc ~15px translucent. */
+
+.cards-fraud > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.cards-fraud > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 28px;
+  border-radius: 24px;
+  background-color: var(--brand-accent);
+}
+
+/* icon */
+.cards-fraud .cards-fraud-card-icon {
+  line-height: 0;
+  margin-bottom: 16px;
+}
+
+.cards-fraud .cards-fraud-card-icon img,
+.cards-fraud .cards-fraud-card-icon picture {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+/* body: title + description */
+.cards-fraud .cards-fraud-card-body {
+  margin: 0;
+}
+
+.cards-fraud .cards-fraud-card-body p {
+  margin: 0;
+}
+
+.cards-fraud .cards-fraud-card-body p:first-child {
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--brand-primary);
+}
+
+.cards-fraud .cards-fraud-card-body p:last-child {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: rgb(0 0 0 / 50%);
+}
+
+@media (width >= 600px) {
+  .cards-fraud > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "status": "success",
+  "url": "https://www.hdfcsec.com/",
+  "path": "index",
+  "timestamp": "2026-09-16T17:58:44.896Z",
+  "title": "Open Trading Account Online & Invest in Stock, MF, IPO & More with HDFC Securities",
+  "template": "home",
+  "blocks": [
+    "carousel-hero",
+    "columns-enroll",
+    "columns-enroll",
+    "columns-enroll",
+    "cards-offering",
+    "columns-feature",
+    "cards-tool",
+    "columns-statpanel",
+    "cards-feature",
+    "cards-support",
+    "embed-poster",
+    "cards-fraud",
+    "columns-stat",
+    "columns-app"
+  ]
+}

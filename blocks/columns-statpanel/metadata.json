@@ -1,0 +1,10 @@
+{
+  "variantName": "columns-statpanel",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "A highlighted, visually-boxed research panel: a label, a bold statement, a description, a row of three statistics (700+ Stocks Covered, 25+ Years of Expertise, Daily Fresh Picks), and a CTA button.",
+  "contentPattern": "First row = block name. Subsequent rows = panel copy rows and a final stats row split into three cells (number + label each).",
+  "usage": "Boxed statistics/credibility panel combining copy with a 3-up stat row.",
+  "options": [],
+  "memberVariantIds": ["columns-statpanel"]
+}

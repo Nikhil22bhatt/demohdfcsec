@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-offering",
+  "baseBlock": "cards",
+  "canonicalModel": "collection",
+  "visualCharacteristics": "Three offering cards in a row (Discount Broker / Full Service / Wealth Advisor). Each card has a brand logo, a title, a bullet list of features, and a CTA button. The middle card is visually highlighted.",
+  "contentPattern": "First row = block name. Each subsequent row is one card: logo image cell + body cell (title, bullet list, CTA).",
+  "usage": "Product/offering comparison row with a highlighted recommended option.",
+  "options": [],
+  "memberVariantIds": ["cards-offering"]
+}

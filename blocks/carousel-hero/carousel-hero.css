@@ -1,0 +1,277 @@
+/* Block: carousel-hero — HDFC Securities hero banner.
+   Design migrated from source .hero-slider: navy gradient banner, white text
+   left (eyebrow badge, heading, muted subtitle, white pill CTA), wide/short
+   illustration anchored bottom-right. Values from source computed styles @1440. */
+
+/* Full-bleed: override the section 1200px max-width wrapper */
+.carousel-hero-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.carousel-hero {
+  position: relative;
+}
+
+.carousel-hero .carousel-hero-slides-container {
+  position: relative;
+}
+
+.carousel-hero .carousel-hero-slides,
+.carousel-hero .carousel-hero-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-hero .carousel-hero-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-hero .carousel-hero-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Slide: navy gradient banner --- */
+.carousel-hero .carousel-hero-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 460px;
+  background:
+    linear-gradient(105deg, #00015e 0%, #071a6b 42%, #0e3f96 78%, #1268b5 100%);
+}
+
+/* --- Illustration: wide/short, anchored to bottom-right, sits behind text --- */
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-image picture {
+  display: block;
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-image picture > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+/* --- Text content: left column, constrained to the 1200 content band --- */
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-content {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--content-max-width, 1200px);
+  margin: 0 auto;
+  padding: 40px 24px 180px;
+  color: #fff;
+}
+
+/* eyebrow badge */
+.carousel-hero .carousel-hero-slide-content > p:first-child {
+  display: inline-block;
+  margin: 0 0 24px;
+  padding: 11px 18px;
+  border: 1px solid rgb(255 255 255 / 35%);
+  border-radius: 7px;
+  background-color: rgb(255 255 255 / 15%);
+  color: rgb(255 255 255 / 90%);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* heading */
+.carousel-hero .carousel-hero-slide-content h1,
+.carousel-hero .carousel-hero-slide-content h2,
+.carousel-hero .carousel-hero-slide-content h3 {
+  margin: 0 0 8px;
+  max-width: 620px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.carousel-hero .carousel-hero-slide-content h1 em,
+.carousel-hero .carousel-hero-slide-content h2 em,
+.carousel-hero .carousel-hero-slide-content h3 em {
+  font-style: normal;
+  color: rgb(255 255 255 / 75%);
+}
+
+/* subtitle / description */
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-hero .carousel-hero-slide-content p {
+  max-width: 520px;
+  margin: 0 0 24px;
+  color: rgb(255 255 255 / 70%);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* CTA — the source link is a plain <a> (no EDS .button decoration): white pill */
+.carousel-hero .carousel-hero-slide-content a {
+  display: inline-block;
+  margin: 0;
+  padding: 12px 24px;
+  border-radius: 42px;
+  background-color: #fff;
+  color: var(--brand-primary, #00015e);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.carousel-hero .carousel-hero-slide-content a:hover,
+.carousel-hero .carousel-hero-slide-content a:focus-visible {
+  background-color: var(--brand-accent, #e7ebff);
+  color: var(--brand-primary, #00015e);
+}
+
+/* the CTA sits in its own <p> — remove the inherited paragraph max-width/margin */
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-hero .carousel-hero-slide-content p:has(> a) {
+  max-width: none;
+  margin: 0;
+}
+
+/* --- Slide indicators (bottom, aligned under content) --- */
+.carousel-hero .carousel-hero-slide-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto;
+  padding: 0 24px;
+  line-height: 0;
+}
+
+.carousel-hero .carousel-hero-slide-indicator button {
+  width: 28px;
+  height: 4px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background-color: rgb(255 255 255 / 35%);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.carousel-hero .carousel-hero-slide-indicator button:disabled,
+.carousel-hero .carousel-hero-slide-indicator button:hover,
+.carousel-hero .carousel-hero-slide-indicator button:focus-visible {
+  background-color: #fff;
+}
+
+/* --- Prev/next navigation buttons --- */
+.carousel-hero .carousel-hero-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  right: 12px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-hero .carousel-hero-navigation-buttons button {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 15%);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.carousel-hero .carousel-hero-navigation-buttons button:hover,
+.carousel-hero .carousel-hero-navigation-buttons button:focus-visible {
+  background-color: rgb(255 255 255 / 35%);
+}
+
+.carousel-hero .carousel-hero-navigation-buttons button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  width: 11px;
+  height: 11px;
+  border: 2px solid #fff;
+  border-bottom: 0;
+  border-left: 0;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-hero .carousel-hero-navigation-buttons button.slide-next::after {
+  left: calc(50% - 2px);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* --- Desktop --- */
+@media (width >= 900px) {
+  .carousel-hero .carousel-hero-slide {
+    min-height: min(46.7vw, 620px);
+    justify-content: center;
+  }
+
+  .carousel-hero .carousel-hero-slide .carousel-hero-slide-image {
+    width: 58%;
+    max-width: 760px;
+  }
+
+  .carousel-hero .carousel-hero-slide-content {
+    padding: 72px 32px;
+  }
+
+  .carousel-hero .carousel-hero-slide-content h1,
+  .carousel-hero .carousel-hero-slide-content h2,
+  .carousel-hero .carousel-hero-slide-content h3 {
+    font-size: 46px;
+  }
+
+  .carousel-hero .carousel-hero-slide-indicators {
+    max-width: var(--content-max-width, 1200px);
+    justify-content: flex-start;
+    padding: 0 32px;
+  }
+
+  .carousel-hero .carousel-hero-navigation-buttons {
+    left: 24px;
+    right: 24px;
+  }
+}

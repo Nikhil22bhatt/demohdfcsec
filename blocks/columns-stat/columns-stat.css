@@ -1,0 +1,55 @@
+/* Block: columns-stat — "The HDFC Difference" statistics row.
+   Values extracted from source .diff-stats-row computed styles (viewport 1440). */
+
+/* row of stat cells */
+.columns-stat > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 32px 0;
+}
+
+/* individual stat cell */
+.columns-stat > div > div {
+  flex: 1 1 0%;
+  text-align: center;
+}
+
+/* big number (first paragraph) */
+.columns-stat > div > div > p:first-child {
+  margin: 0 0 8px;
+  font-family: var(--heading-font-family);
+  font-weight: 300;
+  font-size: clamp(38px, 9vw, 82px);
+  line-height: 1;
+  color: var(--brand-primary);
+}
+
+/* label (second paragraph) */
+.columns-stat > div > div > p:last-child {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  font-size: clamp(14px, 3vw, 23.52px);
+  line-height: 1.2;
+  color: #000;
+}
+
+@media (width >= 900px) {
+  .columns-stat > div {
+    gap: 16.8px;
+    margin: 48px 0;
+  }
+
+  .columns-stat > div > div > p:first-child {
+    margin: 0 0 16.8px;
+    font-size: 82.32px;
+    line-height: 82.32px;
+  }
+
+  .columns-stat > div > div > p:last-child {
+    font-size: 23.52px;
+    line-height: 28.224px;
+  }
+}

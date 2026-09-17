@@ -1,0 +1,68 @@
+/* Block: cards-support — HDFC support cards on the light-violet .accent band.
+   Values extracted from source .support-grid computed styles (normalized from
+   1440px viewport scale ~0.84). Cards are transparent so the accent bg shows. */
+
+.cards-support > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px 18px;
+}
+
+/* card: transparent, centered, image stacked over text */
+.cards-support > ul > li {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  background-color: transparent;
+  text-align: center;
+}
+
+/* image wrapper — rounded, clipped, wide photo on top */
+.cards-support .cards-support-card-image {
+  line-height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.cards-support .cards-support-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 344 / 300;
+  object-fit: cover;
+}
+
+/* body holds the title + description */
+.cards-support .cards-support-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* title */
+.cards-support .cards-support-card-body p:first-child {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--brand-primary);
+}
+
+/* description */
+.cards-support .cards-support-card-body p:last-child {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #606060;
+}
+
+@media (width >= 900px) {
+  .cards-support > ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}

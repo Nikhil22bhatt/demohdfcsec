@@ -269,4 +269,63 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+header nav .nav-tools p {
+  margin: 0;
+}
+
+/* HDFC search box (Quotes, Nav) */
+header nav .nav-search {
+  display: none;
+}
+
+header nav .nav-search input {
+  box-sizing: border-box;
+  width: 160px;
+  padding: 7px 14px;
+  border: 1px solid #d0d4e4;
+  border-radius: 20px;
+  background-color: #f4f6ff;
+  font: inherit;
+  font-size: var(--body-font-size-xs);
+}
+
+/* HDFC CTA (Open Trading A/C) — red pill */
+header nav .nav-tools a.nav-cta {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: var(--brand-cta);
+  color: #fff;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+header nav .nav-tools a.nav-cta:hover {
+  background-color: var(--brand-cta-hover);
+}
+
+/* HDFC Login — navy text link */
+header nav .nav-tools a.nav-login {
+  color: var(--brand-primary);
+  font-size: var(--body-font-size-xs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (width >= 900px) {
+  header nav .nav-search {
+    display: block;
+  }
+}
+
+/* HDFC brand-navy nav text */
+header nav .nav-sections .default-content-wrapper > ul > li {
+  color: var(--brand-primary);
+  font-weight: 600;
 }

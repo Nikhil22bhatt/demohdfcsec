@@ -1,0 +1,10 @@
+{
+  "variantName": "columns-app",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Two app-download promos side by side (HDFC InvestRight, HDFC SKY). Each has a logo, a phone mockup, and App Store / Google Play badge links; flanked by decorative phone mockups.",
+  "contentPattern": "First row = block name. Second row split into cells, one per app promo: logo, image/mockup, and store badge links.",
+  "usage": "Side-by-side app-download promotions with store badges.",
+  "options": [],
+  "memberVariantIds": ["columns-app"]
+}

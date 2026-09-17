@@ -143,6 +143,36 @@ function decorateButtons(main) {
 }
 
 /**
+ * Applies "Section Metadata" blocks to their parent section as classes/data,
+ * then removes the raw block. The vendored aem.js decorateSections does not
+ * handle section-metadata, so we do it here before sections are decorated.
+ * @param {Element} main The main container element
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll(':scope > div > div.section-metadata').forEach((blockEl) => {
+    const section = blockEl.parentElement;
+    const meta = {};
+    [...blockEl.children].forEach((row) => {
+      if (row.children.length >= 2) {
+        const key = row.children[0].textContent.trim().toLowerCase();
+        const value = row.children[1].textContent.trim();
+        if (key) meta[key] = value;
+      }
+    });
+    if (meta.style) {
+      meta.style.split(',').forEach((s) => {
+        const cls = s.trim().replace(/\s+/g, '-').toLowerCase();
+        if (cls) section.classList.add(cls);
+      });
+    }
+    Object.keys(meta).forEach((key) => {
+      if (key !== 'style') section.dataset[key.replace(/-([a-z])/g, (m, c) => c.toUpperCase())] = meta[key];
+    });
+    blockEl.remove();
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -150,6 +180,7 @@ function decorateButtons(main) {
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
+  decorateSectionMetadata(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);

@@ -1,0 +1,122 @@
+/* Block: columns-enroll -- lead-capture bar
+   Values extracted from source computed styles (.hero-enroll.numberchk on hdfcsec.com).
+   Full-width navy strip: white promo text, translucent white-bordered input pill,
+   red pill CTA. Two instances on the page are styled identically. */
+
+/* Full-bleed: override the section wrapper's 1200px max-width so the navy
+   strip spans the full viewport width. */
+.columns-enroll-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+/* Make the section flush (no vertical gap) so it reads as a solid strip. */
+main .section:has(> .columns-enroll-wrapper) {
+  margin: 0;
+}
+
+.columns-enroll {
+  background-color: var(--brand-primary); /* #00015e navy */
+  color: #fff;
+}
+
+/* Cells wrap their text in <p> (EDS) which carries global margins -- remove
+   them so text sits vertically centered in the bar and inside the CTA pill. */
+.columns-enroll > div > div > p {
+  margin: 0;
+}
+
+/* Row: constrain inner content to the site content width, lay out cells.
+   Mobile-first = stacked and centered. */
+.columns-enroll > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  max-width: var(--content-max-width); /* 1200px */
+  margin: 0 auto;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+/* Promo text (first cell). */
+.columns-enroll > div > div:first-child {
+  order: 1;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* Mobile-number field: the plain "Mobile Number" cell is promoted to an
+   input by columns-enroll.js. Translucent pill with a white border. */
+.columns-enroll .columns-enroll-input {
+  order: 2;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 336px;
+  height: 44px;
+  margin: 0;
+  padding: 0 24px;
+  border: 1px solid #fff;
+  border-radius: 42px;
+  background-color: rgb(255 255 255 / 10%);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+}
+
+.columns-enroll .columns-enroll-input::placeholder {
+  color: rgb(255 255 255 / 85%);
+}
+
+.columns-enroll .columns-enroll-input:focus {
+  outline: none;
+  border-color: #fff;
+  background-color: rgb(255 255 255 / 18%);
+}
+
+/* CTA (last cell) -- red pill. Authored as plain text, so style the cell. */
+.columns-enroll > div > div:last-child {
+  order: 3;
+  padding: 12px 25px;
+  border-radius: 42px;
+  background-color: var(--brand-cta); /* #d80000 */
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* If an author supplies a real link, keep it looking like the pill text. */
+.columns-enroll > div > div:last-child a:any-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Desktop: single row -- promo grows to push the field + CTA to the right. */
+@media (width >= 900px) {
+  .columns-enroll > div {
+    flex-direction: row;
+    gap: 16px;
+    padding: 12px 32px;
+    text-align: left;
+  }
+
+  .columns-enroll > div > div:first-child {
+    flex: 1 1 auto;
+  }
+
+  .columns-enroll .columns-enroll-input {
+    width: 336px;
+    flex: 0 0 auto;
+  }
+
+  .columns-enroll > div > div:last-child {
+    flex: 0 0 auto;
+  }
+}

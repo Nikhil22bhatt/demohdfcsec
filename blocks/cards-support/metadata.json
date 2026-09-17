@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-support",
+  "baseBlock": "cards",
+  "canonicalModel": "collection",
+  "visualCharacteristics": "Three support cards (Always Available, Dedicated Support Specialists, Zero Friction Onboarding). Each has a wide photo, a title, and a description.",
+  "contentPattern": "First row = block name. Each subsequent row is one card: image cell + body cell (title, description).",
+  "usage": "Photo-led support/service highlight cards, typically on an accent-background section.",
+  "options": [],
+  "memberVariantIds": ["cards-support"]
+}

@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-tool",
+  "baseBlock": "cards",
+  "canonicalModel": "collection",
+  "visualCharacteristics": "Two tool cards side by side (TradingView for Traders, Future Calculators). Each card has a title, description, CTA, and a product screenshot below the text.",
+  "contentPattern": "First row = block name. Each subsequent row is one card: body cell (title, description, CTA) + screenshot image cell.",
+  "usage": "Showcase two related tools/features with descriptive text and a supporting screenshot.",
+  "options": [],
+  "memberVariantIds": ["cards-tool"]
+}

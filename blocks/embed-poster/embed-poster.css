@@ -1,0 +1,132 @@
+/*
+ * embed-poster — SCAM 2025 "Let's Make India Fraud Free" video promo banner.
+ * Values extracted from source .fraudSection computed styles (viewport 1440):
+ *   banner 1038x500 (image 1236x600, ratio ~2.06), border-radius 32px,
+ *   padding 161px/102px, heading 48.72px/300/white, watch pill white w/ navy play circle.
+ */
+
+.embed-poster {
+  margin: 32px auto;
+}
+
+/* Poster banner — background image supplied via CSS (source used a CSS background). */
+.embed-poster .embed-poster-placeholder {
+  position: relative;
+  box-sizing: border-box;
+  aspect-ratio: 1236 / 600;
+  border-radius: 20px;
+  overflow: hidden;
+  background-image: url("./poster.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 28px;
+}
+
+.embed-poster .embed-poster-clickable {
+  cursor: pointer;
+}
+
+/* If a poster <picture> is authored, cover the banner with it. */
+.embed-poster .embed-poster-placeholder > picture,
+.embed-poster .embed-poster-placeholder > picture img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Overlaid heading/text */
+.embed-poster .embed-poster-overlay {
+  position: relative;
+  z-index: 1;
+  max-width: 55%;
+}
+
+.embed-poster .embed-poster-overlay h1,
+.embed-poster .embed-poster-overlay h2,
+.embed-poster .embed-poster-overlay h3 {
+  margin: 0 0 16px;
+  font-family: inter, inter-fallback, sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 1.2;
+  color: #fff;
+  text-align: left;
+  letter-spacing: normal;
+}
+
+.embed-poster .embed-poster-overlay p {
+  margin: 0 0 12px;
+  color: #fff;
+}
+
+/* Watch Now pill */
+.embed-poster .embed-poster-placeholder-play {
+  position: relative;
+  z-index: 2;
+}
+
+.embed-poster .embed-poster-watch {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  height: 37px;
+  padding: 0;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.embed-poster .embed-poster-play-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  margin: 3px 3px 3px 10px;
+  border-radius: 50%;
+  background-image: linear-gradient(45deg, rgb(0 59 143) 0%, rgb(0 16 40) 100%);
+}
+
+.embed-poster .embed-poster-play-circle svg {
+  width: 9px;
+  height: 11px;
+  margin-left: 2px;
+}
+
+.embed-poster .embed-poster-watch-text {
+  padding: 8px 12px 8px 6px;
+  font-family: inter, inter-fallback, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  color: #000;
+}
+
+/* Loaded embed (iframe) — drop the fixed banner aspect ratio. */
+.embed-poster .embed-poster-is-loaded {
+  aspect-ratio: unset;
+}
+
+@media (width >= 900px) {
+  .embed-poster .embed-poster-placeholder {
+    border-radius: 32px;
+    padding: 48px 56px;
+  }
+
+  .embed-poster .embed-poster-overlay h1,
+  .embed-poster .embed-poster-overlay h2,
+  .embed-poster .embed-poster-overlay h3 {
+    margin: 0 0 24px;
+    font-size: 48px;
+  }
+}

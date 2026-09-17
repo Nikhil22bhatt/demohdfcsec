@@ -1,0 +1,117 @@
+/* columns-app — HDFC app-download promo band (InvestRight + SKY)
+   Values from source .app-center / .app-inner computed styles:
+   - band bg #e7ebff (accent), section padding ~82px vertical
+   - h2 40.32px / 600 / lh 48.384px / #00015e / centered / mb 62.16px
+   - per promo: logo (InvestRight 126x20, SKY 81x27) + phone mockup (186w)
+     + Apple/Google store badges (85x26) stacked, gap ~5px
+   Decorated EDS DOM:
+   .columns-app > div:first-child  -> row 1 [h2 cell, empty cell]
+   .columns-app > div:last-child   -> row 2 [.columns-app-img-col, .columns-app-img-col]
+   each img-col > p > picture(logo), picture(phone), a(apple)>picture, a(google)>picture */
+
+.columns-app {
+  background-color: var(--brand-accent);
+  border-radius: 24px;
+  padding: 48px 48px 0;
+  overflow: hidden;
+}
+
+/* Hide the two stray flanking phone mockups that were authored as section
+   default content (IR_1.png before / SKY_1.png after the block). The same
+   phones already render inside each promo cell, so these are duplicates. */
+.columns-app-container > div > p:has(picture),
+.columns-app-container > div > p:has(img) {
+  display: none;
+}
+
+/* Row 1 — heading (2nd cell is empty, collapse it) */
+.columns-app > div:first-child {
+  display: block;
+}
+
+.columns-app > div:first-child > div:empty {
+  display: none;
+}
+
+.columns-app h2 {
+  margin: 0 0 40px;
+  font-family: var(--heading-font-family);
+  font-size: 40.32px;
+  font-weight: 600;
+  line-height: 48.384px;
+  color: var(--brand-primary);
+  text-align: center;
+}
+
+/* Row 2 — the two app promos side by side */
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-app > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.columns-app-img-col {
+  flex: 0 1 auto;
+}
+
+/* Each promo cell: phone mockup beside a compact column of
+   logo + stacked App Store / Google Play badges (source gap ~5px). */
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-app-img-col p {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 20px;
+  margin: 0;
+}
+
+/* phone mockup — sits to the left */
+.columns-app-phone img {
+  display: block;
+  width: auto;
+  height: 240px;
+  max-width: none;
+}
+
+/* right column: logo on top, then stacked store badges */
+.columns-app-store-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5.04px;
+  padding-bottom: 6px;
+}
+
+.columns-app-store-col picture img {
+  width: auto;
+  max-height: 28px;
+  margin-bottom: 3px;
+}
+
+.columns-app-store-col a:any-link {
+  display: block;
+}
+
+.columns-app-store-col a img {
+  width: auto;
+  height: 30px;
+}
+
+@media (width >= 900px) {
+  .columns-app {
+    padding: 56px 64px 0;
+  }
+
+  .columns-app h2 {
+    margin-bottom: 56px;
+  }
+
+  .columns-app > div:last-child {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 64px;
+  }
+}

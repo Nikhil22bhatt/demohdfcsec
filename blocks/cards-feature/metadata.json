@@ -1,0 +1,10 @@
+{
+  "variantName": "cards-feature",
+  "baseBlock": "cards",
+  "canonicalModel": "collection",
+  "visualCharacteristics": "Four feature cards in a row (Expert Stock Picks, Market Insights, Reports & Recommendations, Portfolio Guidance). Each has a small icon, a title, and a short description. No borders — clean icon-led grid.",
+  "contentPattern": "First row = block name. Each subsequent row is one card: icon image cell + body cell (title, description).",
+  "usage": "Icon-led feature grid highlighting a set of capabilities.",
+  "options": [],
+  "memberVariantIds": ["cards-feature"]
+}

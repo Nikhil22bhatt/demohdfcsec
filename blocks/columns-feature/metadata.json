@@ -1,0 +1,10 @@
+{
+  "variantName": "columns-feature",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Side-by-side feature layout: heading, paragraph, and CTA on one side; a product screenshot on the other (Portfolio Optimiser).",
+  "contentPattern": "First row = block name. Second row = two cells: content cell (heading, paragraph, CTA) and image cell.",
+  "usage": "Single feature spotlight with copy beside a product image.",
+  "options": [],
+  "memberVariantIds": ["columns-feature"]
+}

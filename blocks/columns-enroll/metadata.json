@@ -1,0 +1,10 @@
+{
+  "variantName": "columns-enroll",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Thin full-width lead-capture bar with a solid accent background. Promo text on the left, a mobile-number input, and an 'Open Trading A/C' CTA button aligned in a single row.",
+  "contentPattern": "First row = block name. Second row split into cells: promo text cell, mobile-number field cell (plain text becomes an input), and CTA link cell.",
+  "usage": "Inline lead-capture / account-opening promo bar. Reused directly beneath the hero and again near the page footer.",
+  "options": [],
+  "memberVariantIds": ["columns-enroll"]
+}

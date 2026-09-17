@@ -1,0 +1,10 @@
+{
+  "variantName": "columns-stat",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "A row of three large statistics with labels (20+ Years of Trust, 5M+ Active Clients, 99.9% System Uptime). Big figure over a small label, evenly spaced.",
+  "contentPattern": "First row = block name. Second row split into three cells, each with a big number and a label.",
+  "usage": "Balanced 3-up statistics row for credibility/metrics.",
+  "options": [],
+  "memberVariantIds": ["columns-stat"]
+}

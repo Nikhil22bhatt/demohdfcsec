@@ -1,0 +1,152 @@
+/* columns-statpanel — HDFC "Why Our Research Wins" research stats panel.
+   Values extracted from source .intel-stat-card computed styles (un-scaled from
+   the source's ~0.84 viewport scale to design values). */
+
+.columns-statpanel {
+  box-sizing: border-box;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  border-radius: 28px;
+  background-color: var(--brand-accent);
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* content cell (first row) */
+.columns-statpanel-content > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* label — "Why Our Research Wins" */
+.columns-statpanel-content > div > p:nth-of-type(1) {
+  margin: 0 0 24px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #000;
+}
+
+/* headline statement — "500+ Analysts. Zero Noise." */
+.columns-statpanel-content > div > p:nth-of-type(2) {
+  margin: 0 0 18px;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--brand-primary);
+}
+
+/* sub paragraph */
+.columns-statpanel-content > div > p:nth-of-type(3) {
+  max-width: 520px;
+  margin: 0 auto 18px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #000;
+}
+
+/* descriptive paragraph */
+.columns-statpanel-content > div > p:nth-of-type(4) {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #000;
+}
+
+/* stats row */
+.columns-statpanel-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 32px 0;
+}
+
+.columns-statpanel-stats > div {
+  flex: 1;
+  padding: 16px 0;
+  text-align: center;
+}
+
+/* stat number */
+.columns-statpanel-stats > div > p:first-child {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--brand-primary);
+}
+
+/* stat label */
+.columns-statpanel-stats > div > p:last-child {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--brand-primary);
+}
+
+/* CTA row — source is a navy pill (not the site-default red). Override the
+   global button primary style to match the source #00015e pill. */
+.columns-statpanel-cta {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.columns-statpanel-cta .button-container {
+  margin: 0;
+}
+
+.columns-statpanel a.button:any-link:not(.secondary, .outline) {
+  border-radius: 50px;
+  border-color: var(--brand-primary);
+  background-color: var(--brand-primary);
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.columns-statpanel a.button:any-link:not(.secondary, .outline):hover,
+.columns-statpanel a.button:any-link:not(.secondary, .outline):focus-visible {
+  border-color: #000159;
+  background-color: #000159;
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  .columns-statpanel {
+    padding: 44px;
+  }
+
+  .columns-statpanel-content > div > p:nth-of-type(2) {
+    font-size: 38px;
+  }
+
+  /* three stats side-by-side with subtle vertical dividers */
+  .columns-statpanel-stats {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .columns-statpanel-stats > div + div {
+    border-left: 1px solid rgb(0 1 94 / 20%);
+  }
+
+  .columns-statpanel-stats > div > p:first-child {
+    font-size: 38px;
+  }
+
+  .columns-statpanel-stats > div > p:last-child {
+    font-size: 28px;
+  }
+
+  .columns-statpanel a.button:any-link:not(.secondary, .outline) {
+    font-size: 18px;
+  }
+}
