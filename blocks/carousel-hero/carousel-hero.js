@@ -89,6 +89,15 @@ function createSlide(row, slideIndex, carouselId) {
     slide.classList.add('slide-photo');
   }
 
+  // Banner slides: the whole slide IS a designed banner image with baked-in copy.
+  // Their content cell carries no heading (just a label), so drop the overlay text
+  // and render the banner edge-to-edge with no scrim.
+  const contentCell = slide.querySelector('.carousel-hero-slide-content');
+  if (contentCell && !contentCell.querySelector('h1, h2, h3, h4, h5, h6, a')) {
+    slide.classList.add('slide-banner');
+    contentCell.remove();
+  }
+
   const labeledBy = slide.querySelector('h1, h2, h3, h4, h5, h6');
   if (labeledBy) {
     slide.setAttribute('aria-labelledby', labeledBy.getAttribute('id'));

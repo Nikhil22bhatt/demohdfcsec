@@ -88,8 +88,19 @@
   object-position: center;
 }
 
-/* left scrim so white text stays legible over image/photo */
-.carousel-hero .carousel-hero-slide .carousel-hero-slide-image::after {
+/* banner slides: full-bleed designed banner (copy baked into the image), no scrim */
+.carousel-hero .carousel-hero-slide.slide-banner .carousel-hero-slide-image {
+  inset: 0;
+  width: 100%;
+}
+
+.carousel-hero .carousel-hero-slide.slide-banner .carousel-hero-slide-image picture > img {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* left scrim so white text stays legible over image/photo (not on banner slides) */
+.carousel-hero .carousel-hero-slide:not(.slide-banner) .carousel-hero-slide-image::after {
   content: '';
   position: absolute;
   inset: 0;
