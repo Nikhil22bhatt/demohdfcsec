@@ -83,14 +83,16 @@ function createSlide(row, slideIndex, carouselId) {
   });
 
   // Full-bleed people-photo slides use a .jpg background (e.g. hero-sky-man,
-  // hero-tru-golf); product-image slides (app mockups / composed graphics) sit
-  // as a right-side foreground. Extension alone is ambiguous — a composed
-  // graphic can be a .jpg — so exclude files flagged as a "graphic" from the
-  // full-bleed treatment and keep them anchored right.
+  // hero-tru-golf) and carry only a generic placeholder alt ("HI"). Product
+  // slides — app mockups and the composed Portfolio graphic — get a descriptive
+  // alt and sit as a right-side foreground. Detect by alt, not filename: EDS
+  // rewrites src to a content hash on the published site, so any filename cue
+  // (extension or "graphic") is gone by runtime, but alt survives.
   const heroImg = slide.querySelector('.carousel-hero-slide-image img');
   const heroSrc = heroImg ? (heroImg.getAttribute('src') || heroImg.src || '') : '';
-  const isGraphic = /graphic/i.test(heroSrc);
-  if (heroImg && /\.jpe?g(\?|$)/i.test(heroSrc) && !isGraphic) {
+  const heroAlt = heroImg ? (heroImg.getAttribute('alt') || '').trim() : '';
+  const isGenericAlt = heroAlt.length <= 3; // "HI" placeholder on true photo slides
+  if (heroImg && /\.jpe?g(\?|$)/i.test(heroSrc) && isGenericAlt) {
     slide.classList.add('slide-photo');
   }
 
