@@ -139,6 +139,28 @@ export default async function decorate(block) {
     brandLink.closest('.button-container').className = '';
   }
 
+  // Build a static market ticker (NIFTY / SENSEX) from the brand-section text.
+  // Lines look like: "NIFTY 23,217.60 +99 (0.43%)".
+  if (navBrand) {
+    const ticker = document.createElement('div');
+    ticker.className = 'nav-ticker';
+    navBrand.querySelectorAll('p').forEach((p) => {
+      const text = p.textContent.trim();
+      const m = text.match(/^(NIFTY|SENSEX)\s+([\d.,]+)\s+([+-]?[\d.,]+\s*\([^)]*\))/i);
+      if (!m) return;
+      const [, name, value, change] = m;
+      const up = !change.trim().startsWith('-');
+      const item = document.createElement('span');
+      item.className = `nav-ticker-item ${up ? 'up' : 'down'}`;
+      item.innerHTML = `<span class="nav-ticker-name">${name}</span> `
+        + `<span class="nav-ticker-value">${value}</span> `
+        + `<span class="nav-ticker-change">${change}</span>`;
+      ticker.append(item);
+      p.remove();
+    });
+    if (ticker.childElementCount) navBrand.append(ticker);
+  }
+
   // Build the live-quote search box (HDFC "Quotes, Nav") in the tools section.
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {

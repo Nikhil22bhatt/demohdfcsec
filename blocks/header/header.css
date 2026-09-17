@@ -154,6 +154,44 @@ header nav .nav-brand img {
   height: auto;
 }
 
+/* static market ticker (NIFTY / SENSEX) */
+header nav .nav-brand .nav-ticker {
+  display: none;
+}
+
+@media (width >= 900px) {
+  header nav .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-basis: auto;
+  }
+
+  header nav .nav-brand .nav-ticker {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: var(--body-font-size-xs);
+    white-space: nowrap;
+  }
+
+  header nav .nav-brand .nav-ticker-item {
+    color: #fff;
+  }
+
+  header nav .nav-brand .nav-ticker-name {
+    font-weight: 700;
+  }
+
+  header nav .nav-brand .nav-ticker-item.up .nav-ticker-change {
+    color: #16c784;
+  }
+
+  header nav .nav-brand .nav-ticker-item.down .nav-ticker-change {
+    color: #ea3943;
+  }
+}
+
 /* sections */
 header nav .nav-sections {
   grid-area: sections;
