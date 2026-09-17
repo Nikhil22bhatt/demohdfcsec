@@ -293,11 +293,31 @@
     justify-content: center;
   }
 
-  /* keep the background photo full-bleed on desktop (override any width cap) */
-  .carousel-hero .carousel-hero-slide .carousel-hero-slide-image {
+  /* keep full-bleed only for photo/banner slides; product-image slides stay
+     on the right half so the left-column headline keeps its clearance */
+  .carousel-hero .carousel-hero-slide.slide-photo .carousel-hero-slide-image,
+  .carousel-hero .carousel-hero-slide.slide-banner .carousel-hero-slide-image {
     inset: 0;
     width: 100%;
     max-width: none;
+  }
+
+  /* product-image slides (app mockup / Portfolio graphic): sit in the right
+     ~half, nudged clear of the headline column */
+  .carousel-hero .carousel-hero-slide:not(.slide-photo, .slide-banner) .carousel-hero-slide-image {
+    inset: 0 0 0 auto;
+    width: 48%;
+    max-width: none;
+  }
+
+  .carousel-hero .carousel-hero-slide:not(.slide-photo, .slide-banner) .carousel-hero-slide-image picture > img {
+    object-position: center right;
+  }
+
+  /* keep the headline column inside the left half on product-image slides so
+     the copy never runs under the right-side graphic */
+  .carousel-hero .carousel-hero-slide:not(.slide-photo, .slide-banner) .carousel-hero-slide-content > * {
+    max-width: 460px;
   }
 
   .carousel-hero .carousel-hero-slide-content {
