@@ -35,7 +35,7 @@
   display: none;
 }
 
-/* --- Slide: full-bleed background photo --- */
+/* --- Slide: navy→blue gradient with a right-side product image (matches source) --- */
 .carousel-hero .carousel-hero-slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
@@ -47,15 +47,17 @@
   overflow: hidden;
   width: 100%;
   min-height: 480px;
-  background-color: #00124a;
+  background: linear-gradient(120deg, #000b45 0%, #061a6e 45%, #0a2e9e 78%, #1247c9 100%);
 }
 
-/* --- Background photo: fills the whole slide, sits behind text --- */
+/* --- Product image: right half of the slide, contained, sits behind text column --- */
 .carousel-hero .carousel-hero-slide .carousel-hero-slide-image {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   z-index: 0;
-  width: 100%;
+  width: 56%;
   max-width: none;
   height: 100%;
   pointer-events: none;
@@ -71,21 +73,31 @@
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  object-position: center right;
+}
+
+/* full-bleed photo slides (people photos): cover the whole slide instead of contained */
+.carousel-hero .carousel-hero-slide.slide-photo .carousel-hero-slide-image {
+  inset: 0;
+  width: 100%;
+}
+
+.carousel-hero .carousel-hero-slide.slide-photo .carousel-hero-slide-image picture > img {
   object-fit: cover;
   object-position: center;
 }
 
-/* dark gradient scrim on the left so overlaid white text stays legible */
+/* left scrim so white text stays legible over image/photo */
 .carousel-hero .carousel-hero-slide .carousel-hero-slide-image::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgb(0 8 40 / 78%) 0%,
-    rgb(0 8 40 / 55%) 34%,
-    rgb(0 8 40 / 12%) 62%,
-    rgb(0 8 40 / 0%) 100%
+    rgb(0 8 40 / 70%) 0%,
+    rgb(0 8 40 / 40%) 40%,
+    rgb(0 8 40 / 0%) 75%
   );
 }
 

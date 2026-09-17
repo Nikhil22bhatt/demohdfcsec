@@ -82,6 +82,13 @@ function createSlide(row, slideIndex, carouselId) {
     slide.append(column);
   });
 
+  // Full-bleed people-photo slides use a .jpg background; product-image slides
+  // (app mockups / illustrations, typically .png/.svg) sit as a right-side foreground.
+  const heroImg = slide.querySelector('.carousel-hero-slide-image img');
+  if (heroImg && /\.jpe?g(\?|$)/i.test(heroImg.getAttribute('src') || heroImg.src || '')) {
+    slide.classList.add('slide-photo');
+  }
+
   const labeledBy = slide.querySelector('h1, h2, h3, h4, h5, h6');
   if (labeledBy) {
     slide.setAttribute('aria-labelledby', labeledBy.getAttribute('id'));
