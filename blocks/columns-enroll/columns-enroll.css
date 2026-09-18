@@ -10,9 +10,11 @@
   padding: 0 !important;
 }
 
-/* Make the section flush (no vertical gap) so it reads as a solid strip. */
+/* Make the section flush (no vertical gap/padding) so it reads as a solid
+   strip — the band supplies its own inner padding. */
 main .section:has(> .columns-enroll-wrapper) {
   margin: 0;
+  padding: 0;
 }
 
 .columns-enroll {

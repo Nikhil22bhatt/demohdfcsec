@@ -298,6 +298,12 @@ main > .section {
   padding: 40px 0;
 }
 
+/* collapse empty sections (e.g. the trailing wrapper left by the metadata
+   block) so they add no stray whitespace before the footer */
+main > .section:empty {
+  padding: 0;
+}
+
 main > .section > div {
   max-width: var(--content-max-width);
   margin: auto;
@@ -311,7 +317,7 @@ main > .section:first-of-type {
 
 @media (width >= 900px) {
   main > .section {
-    padding: 41px 0; /* ~82px between adjacent sections (41 bottom + 41 top) */
+    padding: 48px 0; /* ~96px between adjacent sections, closer to source rhythm */
   }
 
   main > .section > div {
